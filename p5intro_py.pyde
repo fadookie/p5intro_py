@@ -1,6 +1,6 @@
-# Start working with colors
+# Animate the color!
 
-ALWAYS_PAINT = True
+ALWAYS_PAINT = False
 
 def setup():
     size(800, 800)
@@ -18,7 +18,10 @@ def setup():
     colorMode(HSB, 1)
 
 def draw():
-    background(0.5) # 50% middle gray is now represented by 0.5 insted of 128
+    #background(0.5) # 50% middle gray is now represented by 0.5 insted of 128
     if (ALWAYS_PAINT or mousePressed):
-        fill(0.5, 1, 1); # Sets fill color of ellipse to cyan, the hue halfway between red and violet (can show on colorizer)
+        # Take current time in milliseconds, scale it down, and mod by 1 so it wraps around
+        # (values over 1 are always red). Try turning background off again after demoing!
+        hue = (millis() * 0.001) % 1;
+        fill(hue, 1, 1); # Sets fill color of ellipse to cyan, the hue halfway between red and violet (can show on colorizer)
         ellipse(mouseX, mouseY, 100, 100)

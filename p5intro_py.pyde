@@ -1,8 +1,9 @@
-# Make it more paint-y
+# Only paint while mouse depressed
 def setup():
     size(800, 800)
     noStroke()
 
 def draw():
     # background(128)
-    ellipse(mouseX, mouseY, 100, 100)
+    if (mousePressed):
+        ellipse(mouseX, mouseY, 100, 100)
